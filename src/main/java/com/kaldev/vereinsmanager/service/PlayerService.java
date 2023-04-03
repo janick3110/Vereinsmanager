@@ -24,10 +24,10 @@ public class PlayerService {
     }
 
     public Player getUser(Integer id) {
-        return playerRepository.findById(Long.valueOf(id)).get();
+        return playerRepository.findById(id).get();
     }
 
     public void deleteUser(Integer id) {
-        playerRepository.deleteById((long) id);
+        playerRepository.deleteById(id);
     }
 }

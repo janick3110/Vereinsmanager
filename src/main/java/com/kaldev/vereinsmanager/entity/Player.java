@@ -1,27 +1,28 @@
 package com.kaldev.vereinsmanager.entity;
 
+import com.kaldev.vereinsmanager.Misc.Teams;
 import jakarta.persistence.*;
-import org.springframework.lang.NonNull;
 
+import java.util.Date;
 
-import java.sql.Date;
 
 @Entity
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String firstname;
     private String lastname;
     private Date date;
     private String street;
-    private Long housenumber;
+    private int housenumber;
     private String city;
-    private Long postalCode;
+    private int postalCode;
+    private String mailAdress;
+    private String telephoneNumber;
+    private Teams.teams team;
 
-
-    public Player(Long id, String firstname, String lastname, Date date, String street, Long housenumber, String city, Long postalCode) {
-        this.id = id;
+    public Player(String firstname, String lastname, Date date, String street, int housenumber, String city, int postalCode) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.date = date;
@@ -31,15 +32,17 @@ public class Player {
         this.postalCode = postalCode;
     }
 
-    protected Player() {
+    public Player() {
 
     }
 
-    public Long getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -75,11 +78,11 @@ public class Player {
         this.street = street;
     }
 
-    public Long getHousenumber() {
+    public int getHousenumber() {
         return housenumber;
     }
 
-    public void setHousenumber(Long housenumber) {
+    public void setHousenumber(int housenumber) {
         this.housenumber = housenumber;
     }
 
@@ -91,11 +94,36 @@ public class Player {
         this.city = city;
     }
 
-    public Long getPostalCode() {
+    public int getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(Long postalCode) {
+    public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
     }
+
+    public String getMailAdress() {
+        return mailAdress;
+    }
+
+    public void setMailAdress(String mailAdress) {
+        this.mailAdress = mailAdress;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public Teams.teams getTeam() {
+        return team;
+    }
+
+    public void setTeam(Teams.teams team) {
+        this.team = team;
+    }
 }
+
