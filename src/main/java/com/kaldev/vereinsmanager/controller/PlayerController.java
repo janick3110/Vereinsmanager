@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController()
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/player")
 public class PlayerController {
 

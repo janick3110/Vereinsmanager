@@ -13,7 +13,10 @@ public class Jersey {
     private String sponsor;
     @ElementCollection
     private List<Integer> numbers;
+    private int amountPants;
+    private int amountSocks;
     private Teams.teams team;
+    private int year;
 
     public Jersey(Long id, String sponsor, List<Integer> numbers) {
         this.id = id;
@@ -47,6 +50,30 @@ public class Jersey {
 
     public void setNumbers(List<Integer> numbers) {
         this.numbers = numbers;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getAmountPants() {
+        return amountPants;
+    }
+
+    public void setAmountPants(int amountPants) {
+        this.amountPants = amountPants;
+    }
+
+    public int getAmountSocks() {
+        return amountSocks;
+    }
+
+    public void setAmountSocks(int amountSocks) {
+        this.amountSocks = amountSocks;
     }
 
     public Teams.teams getTeam() {

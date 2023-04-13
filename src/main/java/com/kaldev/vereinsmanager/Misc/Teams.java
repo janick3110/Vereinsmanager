@@ -9,6 +9,7 @@ public class Teams {
         U15,
         U17,
         U19,
-        ARCHIVE
+        ARCHIVE,
+        OTHER
     }
 }

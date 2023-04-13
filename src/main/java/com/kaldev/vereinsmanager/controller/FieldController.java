@@ -18,6 +18,7 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 
 @RestController()
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/fields")
 public class FieldController {
     private FieldRepository fieldRepository;
