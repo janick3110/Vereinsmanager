@@ -1,42 +1,27 @@
 package com.kaldev.vereinsmanager.entity;
 
-import jakarta.persistence.*;
-
-import java.util.Date;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Player {
+public class Responsible {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstname;
     private String lastname;
-    private Date date;
     private String street;
     private int housenumber;
     private String city;
     private int postalCode;
     private String mailAdress;
     private String telephoneNumber;
-    private int groupID;
 
-    public Player(String firstname, String lastname, Date date, String street, int housenumber, String city, int postalCode) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.date = date;
-        this.street = street;
-        this.housenumber = housenumber;
-        this.city = city;
-        this.postalCode = postalCode;
+    public Responsible() {
     }
 
-    public Player() {
-
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -59,14 +44,6 @@ public class Player {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getStreet() {
@@ -116,13 +93,4 @@ public class Player {
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
-
-    public int getGroupID() {
-        return groupID;
-    }
-
-    public void setGroupID(int groupID) {
-        this.groupID = groupID;
-    }
 }
-

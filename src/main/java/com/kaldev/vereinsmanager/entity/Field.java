@@ -1,8 +1,6 @@
 package com.kaldev.vereinsmanager.entity;
 
-import com.kaldev.vereinsmanager.Misc.Teams;
 import jakarta.persistence.*;
-import jdk.jfr.Timespan;
 
 import java.util.*;
 
@@ -102,7 +100,7 @@ class TimeSpan {
     private int id;
     private Date start;
     private Date end;
-    private Teams.teams team;
+    private int groupID;
     private String description;
 
     public TimeSpan() {}
@@ -133,12 +131,12 @@ class TimeSpan {
         this.end = end;
     }
 
-    public Teams.teams getTeam() {
-        return team;
+    public int getGroupID() {
+        return groupID;
     }
 
-    public void setTeam(Teams.teams team) {
-        this.team = team;
+    public void setGroupID(int groupID) {
+        this.groupID = groupID;
     }
 
     public String getDescription() {

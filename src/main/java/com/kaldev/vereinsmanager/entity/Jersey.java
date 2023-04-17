@@ -1,6 +1,5 @@
 package com.kaldev.vereinsmanager.entity;
 
-import com.kaldev.vereinsmanager.Misc.Teams;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,7 +14,7 @@ public class Jersey {
     private List<Integer> numbers;
     private int amountPants;
     private int amountSocks;
-    private Teams.teams team;
+    private int groupID;
     private int year;
 
     public Jersey(Long id, String sponsor, List<Integer> numbers) {
@@ -76,11 +75,11 @@ public class Jersey {
         this.amountSocks = amountSocks;
     }
 
-    public Teams.teams getTeam() {
-        return team;
+    public int getGroupID() {
+        return groupID;
     }
 
-    public void setTeam(Teams.teams team) {
-        this.team = team;
+    public void setGroupID(int groupID) {
+        this.groupID = groupID;
     }
 }

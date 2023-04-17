@@ -1,7 +1,5 @@
 package com.kaldev.vereinsmanager.controller;
 
-import com.kaldev.vereinsmanager.Misc.Teams;
-import com.kaldev.vereinsmanager.entity.Jersey;
 import com.kaldev.vereinsmanager.entity.Player;
 import com.kaldev.vereinsmanager.repository.PlayerRepository;
 import com.kaldev.vereinsmanager.service.PlayerService;
@@ -10,9 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Console;
-import java.sql.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -45,7 +40,7 @@ public class PlayerController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewPlayer (
+    public @ResponseBody HttpStatus addNewPlayer (
             @RequestParam String firstname,
             @RequestParam String lastname,
             @RequestParam String birthday,
@@ -54,8 +49,7 @@ public class PlayerController {
             @RequestParam String city,
             @RequestParam String postalCode,
             @RequestParam String mailAdress,
-            @RequestParam String telephone,
-            @RequestParam Teams.teams team
+            @RequestParam String telephone
             ) {
 
         try {
@@ -72,15 +66,15 @@ public class PlayerController {
             player.setPostalCode(Integer.parseInt(postalCode));
             player.setMailAdress(mailAdress);
             player.setTelephoneNumber(telephone);
-            //TODO: Change default team value
-            player.setTeam(Teams.teams.ARCHIVE);
+            //ToDo: Set Team via ID
+            //player.setTeam(team);
 
 
             playerRepository.save(player);
+            return HttpStatus.OK;
 
-            return "Saved";
         } catch (Exception e){
-            return e.getStackTrace().toString();
+            return HttpStatus.BAD_REQUEST;
         }
     }
 }

@@ -1,21 +1,14 @@
 package com.kaldev.vereinsmanager.controller;
 
-import com.kaldev.vereinsmanager.Misc.Teams;
 import com.kaldev.vereinsmanager.entity.Field;
-import com.kaldev.vereinsmanager.entity.Player;
 import com.kaldev.vereinsmanager.repository.FieldRepository;
-import com.kaldev.vereinsmanager.repository.PlayerRepository;
 import com.kaldev.vereinsmanager.service.FieldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @RestController()
 @CrossOrigin(origins = "http://localhost:4200")
@@ -45,7 +38,7 @@ public class FieldController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewField (
+    public @ResponseBody HttpStatus addNewField (
             @RequestParam String name,
             @RequestParam String segments
     ) {
@@ -56,9 +49,10 @@ public class FieldController {
             field.setSegments(Integer.parseInt(segments));
             fieldService.saveUser(field);
 
-            return "Saved";
+            return HttpStatus.OK;
+
         } catch (Exception e){
-            return e.getStackTrace().toString();
+            return HttpStatus.BAD_REQUEST;
         }
     }
 }
