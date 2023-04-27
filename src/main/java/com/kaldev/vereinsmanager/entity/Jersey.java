@@ -16,6 +16,8 @@ public class Jersey {
     private int amountSocks;
     private int groupID;
     private int year;
+    private String base64image;
+
 
     public Jersey(Long id, String sponsor, List<Integer> numbers) {
         this.id = id;
@@ -81,5 +83,13 @@ public class Jersey {
 
     public void setGroupID(int groupID) {
         this.groupID = groupID;
+    }
+
+    public String getBase64image() {
+        return base64image;
+    }
+
+    public void setBase64image(String base64image) {
+        this.base64image = base64image;
     }
 }

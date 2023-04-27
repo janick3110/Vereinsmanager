@@ -41,13 +41,14 @@ public class JerseyController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody HttpStatus addNewJersey (
+    public ResponseEntity<Void> addNewJersey (
             @RequestParam String team,
             @RequestParam String sponsorName,
             @RequestParam String numbers,
             @RequestParam int amountPants,
             @RequestParam int amountSocks,
-            @RequestParam int year
+            @RequestParam int year,
+            @RequestParam String image
             ) {
 
         try {
@@ -64,15 +65,16 @@ public class JerseyController {
             jersey.setYear(year);
             jersey.setAmountPants(amountPants);
             jersey.setAmountSocks(amountSocks);
+            jersey.setBase64image(image);
             //ToDo: SetTeam needs to set a group via ID
             //jersey.setTeam(Teams.GetTeamFromString(team));
 
             jerseyRepository.save(jersey);
 
-            return HttpStatus.OK;
+            return ResponseEntity.noContent().build();
 
         } catch (Exception e){
-            return HttpStatus.INTERNAL_SERVER_ERROR;
+            return ResponseEntity.badRequest().build();
         }
 
 

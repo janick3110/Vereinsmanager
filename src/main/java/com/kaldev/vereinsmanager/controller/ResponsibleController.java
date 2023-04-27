@@ -46,7 +46,7 @@ public class ResponsibleController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody HttpStatus addNewPlayer (
+    public @ResponseBody HttpStatus addNewPerson(
             @RequestParam String firstname,
             @RequestParam String lastname,
             @RequestParam String street,
@@ -68,8 +68,6 @@ public class ResponsibleController {
             responsible.setPostalCode(Integer.parseInt(postalCode));
             responsible.setMailAdress(mailAdress);
             responsible.setTelephoneNumber(telephone);
-            //ToDo: Set Team via ID
-            //player.setTeam(team);
 
 
             responsibleRepository.save(responsible);
@@ -81,12 +79,16 @@ public class ResponsibleController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteJersey(@PathVariable int id) {
+    public ResponseEntity<Void> deleteResposible(@PathVariable int id) {
         try {
             responsibleRepository.deleteById(id);
             return ResponseEntity.noContent().build();
         } catch (EmptyResultDataAccessException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    public ResponseEntity<Void> updateData(){
+        return ResponseEntity.notFound().build();
     }
 }

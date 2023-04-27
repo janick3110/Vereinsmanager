@@ -4,6 +4,7 @@ import com.kaldev.vereinsmanager.entity.Player;
 import com.kaldev.vereinsmanager.repository.PlayerRepository;
 import com.kaldev.vereinsmanager.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -75,6 +76,16 @@ public class PlayerController {
 
         } catch (Exception e){
             return HttpStatus.BAD_REQUEST;
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deletePlayer(@PathVariable int id) {
+        try {
+            playerRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } catch (EmptyResultDataAccessException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 }
