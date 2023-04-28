@@ -3,14 +3,14 @@ package com.kaldev.vereinsmanager.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Group {
+public class SportsActivity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int responsibleID;
 
-    public Group() {
+    public SportsActivity() {
 
     }
 

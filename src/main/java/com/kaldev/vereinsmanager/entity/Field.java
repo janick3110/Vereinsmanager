@@ -10,7 +10,11 @@ public class Field {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int segments;
+    private String street;
+    private int houseNumber;
+    private int zipCode;
+    private String city;
+
 
     public Field() {
 
@@ -32,16 +36,38 @@ public class Field {
         this.name = name;
     }
 
-    public int getSegments() {
-        return segments;
+
+    public String getStreet() {
+        return street;
     }
 
-    public void setSegments(int segments) {
-        this.segments = segments;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
+    public int getHouseNumber() {
+        return houseNumber;
+    }
 
-    // getters and setters
+    public void setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }
 
 

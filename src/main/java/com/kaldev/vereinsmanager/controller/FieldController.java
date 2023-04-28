@@ -40,13 +40,20 @@ public class FieldController {
     @PostMapping(path="/add")
     public @ResponseBody HttpStatus addNewField (
             @RequestParam String name,
-            @RequestParam String segments
+            @RequestParam String segments,
+            @RequestParam String street,
+            @RequestParam int houseNumber,
+            @RequestParam int zipCode,
+            @RequestParam String city
     ) {
 
         try {
             Field field = new Field();
             field.setName(name);
-            field.setSegments(Integer.parseInt(segments));
+            field.setStreet(street);
+            field.setHouseNumber(houseNumber);
+            field.setZipCode(zipCode);
+            field.setCity(city);
             fieldService.saveUser(field);
 
             return HttpStatus.OK;
