@@ -18,6 +18,7 @@ public class Responsible {
     private int postalCode;
     private String mailAdress;
     private String telephoneNumber;
+    private String role;
 
     public Responsible() {
     }
@@ -92,5 +93,13 @@ public class Responsible {
 
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

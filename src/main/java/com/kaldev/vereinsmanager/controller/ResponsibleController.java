@@ -12,9 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
+
 import java.util.List;
-import java.util.Locale;
 import java.util.NoSuchElementException;
 
 @RestController()
@@ -54,7 +53,8 @@ public class ResponsibleController {
             @RequestParam String city,
             @RequestParam String postalCode,
             @RequestParam String mailAdress,
-            @RequestParam String telephone
+            @RequestParam String telephone,
+            @RequestParam String role
     ) {
 
         try {
@@ -68,7 +68,7 @@ public class ResponsibleController {
             responsible.setPostalCode(Integer.parseInt(postalCode));
             responsible.setMailAdress(mailAdress);
             responsible.setTelephoneNumber(telephone);
-
+            responsible.setRole(role);
 
             responsibleRepository.save(responsible);
             return HttpStatus.OK;
