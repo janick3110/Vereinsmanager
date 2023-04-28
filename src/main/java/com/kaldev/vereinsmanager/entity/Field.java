@@ -12,9 +12,6 @@ public class Field {
     private String name;
     private int segments;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Map<Integer, SegmentData> occupiedElements = new HashMap<>();
-
     public Field() {
 
     }
@@ -43,107 +40,8 @@ public class Field {
         this.segments = segments;
     }
 
-    public Map<Integer, SegmentData> getOccupiedElements() {
-        return occupiedElements;
-    }
-
-    public void setOccupiedElements(Map<Integer, SegmentData> occupiedElements) {
-        this.occupiedElements = occupiedElements;
-    }
 
     // getters and setters
 }
 
-@Entity
-class SegmentData {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int segmentNumber;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<TimeSpan> timeSpans;
-
-    public SegmentData() {}
-
-    // getters and setters
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getSegmentNumber() {
-        return segmentNumber;
-    }
-
-    public void setSegmentNumber(int segmentNumber) {
-        this.segmentNumber = segmentNumber;
-    }
-
-    public List<TimeSpan> getTimeSpans() {
-        return timeSpans;
-    }
-
-    public void setTimeSpans(List<TimeSpan> timeSpans) {
-        this.timeSpans = timeSpans;
-    }
-}
-
-@Entity
-class TimeSpan {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private Date start;
-    private Date end;
-    private int groupID;
-    private String description;
-
-    public TimeSpan() {}
-
-    // getters and setters
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Date getStart() {
-        return start;
-    }
-
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
-    public Date getEnd() {
-        return end;
-    }
-
-    public void setEnd(Date end) {
-        this.end = end;
-    }
-
-    public int getGroupID() {
-        return groupID;
-    }
-
-    public void setGroupID(int groupID) {
-        this.groupID = groupID;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-}
