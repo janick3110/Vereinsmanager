@@ -56,7 +56,6 @@ public class ResponsibleController {
             @RequestParam String telephone,
             @RequestParam String role
     ) {
-
         try {
             Responsible responsible = new Responsible();
 
