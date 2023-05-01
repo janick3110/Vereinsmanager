@@ -54,7 +54,8 @@ public class ResponsibleController {
             @RequestParam String postalCode,
             @RequestParam String mailAdress,
             @RequestParam String telephone,
-            @RequestParam String role
+            @RequestParam int role
+
     ) {
         try {
             Responsible responsible = new Responsible();
