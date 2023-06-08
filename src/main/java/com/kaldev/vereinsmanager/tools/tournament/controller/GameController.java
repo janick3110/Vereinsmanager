@@ -26,4 +26,12 @@ public class GameController {
     public List<Game> games(){
         return gameRepository.findAll();
     }
+
+    public void addGame(Game game) {
+        gameRepository.save(game);
+    }
+
+    public void addGame(List<Game> games) {
+        gameRepository.saveAll(games);
+    }
 }

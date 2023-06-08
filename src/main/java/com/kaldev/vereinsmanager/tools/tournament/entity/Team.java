@@ -10,6 +10,7 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private int idOfTournament;
     private String name;
 
     public Team() {
@@ -21,6 +22,14 @@ public class Team {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdOfTournament() {
+        return idOfTournament;
+    }
+
+    public void setIdOfTournament(int idOfTournament) {
+        this.idOfTournament = idOfTournament;
     }
 
     public String getName() {
